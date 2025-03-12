@@ -62,22 +62,22 @@ VALUES
 
 
 ALTER TABLE funcionarioEmpresa
-ADD CONSTRAINT chkCargo CHECK (cargoFuncionario in ('Analista agronomo', 'Gerente agronomo', 'Superintendente agronomo', 'Analista aviario', 'Gerente aviario'));
+ADD CONSTRAINT chkCargo CHECK (cargoFuncionario in ('Analista', 'Gerente', 'Superintendente'));
 
 
-UPDATE funcionarioEmpresa SET cargoFuncionario = 'Analista agronomo'
+UPDATE funcionarioEmpresa SET cargoFuncionario = 'Analista'
 WHERE idFuncionario = 1;
 
-UPDATE funcionarioEmpresa SET cargoFuncionario = 'Gerente agronomo'
+UPDATE funcionarioEmpresa SET cargoFuncionario = 'Gerente'
 WHERE idFuncionario = 2;
 
-UPDATE funcionarioEmpresa SET cargoFuncionario = 'Superintendente agronomo'
+UPDATE funcionarioEmpresa SET cargoFuncionario = 'Superintendente'
 WHERE idFuncionario = 3;
 
-UPDATE funcionarioEmpresa SET cargoFuncionario = 'Analista aviario'
+UPDATE funcionarioEmpresa SET cargoFuncionario = 'Analista'
 WHERE idFuncionario = 4;
 
-UPDATE funcionarioEmpresa SET cargoFuncionario = 'Gerente aviario'
+UPDATE funcionarioEmpresa SET cargoFuncionario = 'Gerente'
 WHERE idFuncionario = 5;
 
 
@@ -89,5 +89,12 @@ SELECT * FROM empresa;
 SELECT * FROM funcionarioEmpresa;
 SELECT * FROM sensor;
 
+SELECT nomeFuncionario AS 'Nome do Funcionário', 
+	   cpf AS 'CPF', telefoneFuncionario AS 'Telefone do Funcionário',
+       emailFuncionario AS 'E-mail do Funcionário', 
+       senhaFuncionario AS 'Senha do Funcionário',
+       cargoFuncionario AS 'Cargo do Funcionário'
+FROM funcionarioEmpresa
+WHERE cargoFuncionario = 'Gerente';
 
 DESCRIBE funcionarioEmpresa;
